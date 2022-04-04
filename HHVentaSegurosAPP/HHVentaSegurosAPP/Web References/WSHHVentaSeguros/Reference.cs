@@ -117,28 +117,30 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsertUser", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string InsertUser(string nombre, string usuario, string contrasena) {
+        public string InsertUser(string nombre, string usuario, string contrasena, int idCreadoPor) {
             object[] results = this.Invoke("InsertUser", new object[] {
                         nombre,
                         usuario,
-                        contrasena});
+                        contrasena,
+                        idCreadoPor});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void InsertUserAsync(string nombre, string usuario, string contrasena) {
-            this.InsertUserAsync(nombre, usuario, contrasena, null);
+        public void InsertUserAsync(string nombre, string usuario, string contrasena, int idCreadoPor) {
+            this.InsertUserAsync(nombre, usuario, contrasena, idCreadoPor, null);
         }
         
         /// <remarks/>
-        public void InsertUserAsync(string nombre, string usuario, string contrasena, object userState) {
+        public void InsertUserAsync(string nombre, string usuario, string contrasena, int idCreadoPor, object userState) {
             if ((this.InsertUserOperationCompleted == null)) {
                 this.InsertUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsertUserOperationCompleted);
             }
             this.InvokeAsync("InsertUser", new object[] {
                         nombre,
                         usuario,
-                        contrasena}, this.InsertUserOperationCompleted, userState);
+                        contrasena,
+                        idCreadoPor}, this.InsertUserOperationCompleted, userState);
         }
         
         private void OnInsertUserOperationCompleted(object arg) {
@@ -150,22 +152,23 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateUser", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string UpdateUser(int idUsuario, string nombre, string usuario, string contrasena) {
+        public string UpdateUser(int idUsuario, string nombre, string usuario, string contrasena, int idModificadoPor) {
             object[] results = this.Invoke("UpdateUser", new object[] {
                         idUsuario,
                         nombre,
                         usuario,
-                        contrasena});
+                        contrasena,
+                        idModificadoPor});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void UpdateUserAsync(int idUsuario, string nombre, string usuario, string contrasena) {
-            this.UpdateUserAsync(idUsuario, nombre, usuario, contrasena, null);
+        public void UpdateUserAsync(int idUsuario, string nombre, string usuario, string contrasena, int idModificadoPor) {
+            this.UpdateUserAsync(idUsuario, nombre, usuario, contrasena, idModificadoPor, null);
         }
         
         /// <remarks/>
-        public void UpdateUserAsync(int idUsuario, string nombre, string usuario, string contrasena, object userState) {
+        public void UpdateUserAsync(int idUsuario, string nombre, string usuario, string contrasena, int idModificadoPor, object userState) {
             if ((this.UpdateUserOperationCompleted == null)) {
                 this.UpdateUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateUserOperationCompleted);
             }
@@ -173,7 +176,8 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
                         idUsuario,
                         nombre,
                         usuario,
-                        contrasena}, this.UpdateUserOperationCompleted, userState);
+                        contrasena,
+                        idModificadoPor}, this.UpdateUserOperationCompleted, userState);
         }
         
         private void OnUpdateUserOperationCompleted(object arg) {

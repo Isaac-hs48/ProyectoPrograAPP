@@ -25,7 +25,7 @@ namespace HHVentaSegurosAPP
         {
             WSHHVentaSeguros.HHVentaSergurosWS service = new WSHHVentaSeguros.HHVentaSergurosWS();
 
-            string vMessage = service.InsertUser(txtNombreCompleto.Text, txtNombreUsuario.Text, txtContrasena.Text);
+            string vMessage = service.InsertUser(txtNombreCompleto.Text, txtNombreUsuario.Text, txtContrasena.Text,1);
 
             GetUsers();
             clsShared.ShowAlert(alertMessage, vMessage);
@@ -37,7 +37,7 @@ namespace HHVentaSegurosAPP
         {
             WSHHVentaSeguros.HHVentaSergurosWS service = new WSHHVentaSeguros.HHVentaSergurosWS();
 
-            string vMessage = service.UpdateUser(Convert.ToInt32(txtIdUsuario.Text),txtNombreCompleto.Text, txtNombreUsuario.Text, txtContrasena.Text);
+            string vMessage = service.UpdateUser(Convert.ToInt32(txtIdUsuario.Text),txtNombreCompleto.Text, txtNombreUsuario.Text, txtContrasena.Text,1);
 
             GetUsers();
 
