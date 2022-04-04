@@ -245,7 +245,7 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
         
         private string nombreUsuarioField;
         
-        private string contraseñaField;
+        private string contrasenaField;
         
         private string estadoField;
         
@@ -280,12 +280,12 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
         }
         
         /// <remarks/>
-        public string Contraseña {
+        public string Contrasena {
             get {
-                return this.contraseñaField;
+                return this.contrasenaField;
             }
             set {
-                this.contraseñaField = value;
+                this.contrasenaField = value;
             }
         }
         

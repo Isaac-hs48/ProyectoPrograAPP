@@ -24,7 +24,7 @@
               <s:element minOccurs="1" maxOccurs="1" name="IdUsuario" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="NombreCompleto" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="NombreUsuario" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Contraseña" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Contrasena" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
             </s:sequence>
           </s:extension>

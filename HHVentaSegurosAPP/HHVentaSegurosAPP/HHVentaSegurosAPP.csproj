@@ -2303,10 +2303,10 @@
     <Content Include="AdminLTE-3.2.0-rc\plugins\toastr\toastr.js.map" />
     <None Include="packages.config" />
     <None Include="Web References\WSHHVentaSeguros\HHVentaSergurosWS.wsdl" />
-    <Content Include="Web References\WSHHVentaSeguros\Reference.map">
+    <None Include="Web References\WSHHVentaSeguros\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2332,6 +2332,9 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>HHVentaSegurosAPP_WSHHVentaSeguros_HHVentaSergurosWS</CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\UserPage.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
