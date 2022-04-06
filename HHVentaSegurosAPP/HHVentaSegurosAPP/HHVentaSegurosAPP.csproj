@@ -2070,7 +2070,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsShared.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Shared\clsShared.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -24,7 +24,15 @@
                               <asp:TextBox ID="txtContrasena" Type="password" runat="server" CssClass="form-control"></asp:TextBox>
                           </div>
                         <!-- /.card-body -->
+                            <%if (this.ShowAlert)
+                           {%>
 
+                          <div class="alert alert-default-primary d-flex justify-content-between" role="alert" >
+                          <asp:Label ID="alertMessage" Width="100%" runat="server"></asp:Label>
+                          <asp:Button ID="dissmisAlert" runat="server" class="btn btn-outline-primary" Text="×" type="button" OnClick="dissmisAlert_Click" UseSubmitBehavior="false" BorderStyle="None"/>
+         
+                        </div>
+                         <%}%>
                         <div class="card-footer">
                             <asp:Button ID="btnLogin" runat="server" Text="Iniciar sesion" CssClass="btn btn-primary btn-block" OnClick="btnLogin_Click"/>
                         </div>

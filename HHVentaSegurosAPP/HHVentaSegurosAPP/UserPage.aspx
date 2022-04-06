@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="HH Venta Seguros | Usuarios" Language="C#" MasterPageFile="~/Index.Master" AutoEventWireup="true" CodeBehind="UserPage.aspx.cs" Inherits="HHVentaSegurosAPP.UserPage" %>
+<%@ MasterType VirtualPath="~/Index.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -40,8 +41,10 @@
                   <div class="form-group col-3" >
                     <label for="exampleInputPassword1">Contraseña</label>
                       <asp:TextBox ID="txtContrasena" runat="server" CssClass="form-control" Type="password"></asp:TextBox>
+
                   </div>
                 </div>
+
                 <!-- /.card-body -->
 
                 <div class="card-footer">
@@ -56,7 +59,7 @@
                 <asp:BoundField DataField="IdUsuario" HeaderText="Id Usuario"/>
                 <asp:BoundField DataField="NombreCompleto" HeaderText="Nombre Completo"/>
                 <asp:BoundField DataField="NombreUsuario" HeaderText="Usuario"/>
-                <asp:BoundField DataField="Contrasena" ItemStyle-CssClass="hide" HeaderText="Contraseña"/>
+                <asp:BoundField DataField="Contrasena"  HeaderText="Contraseña"/>
                 <asp:CommandField ControlStyle-CssClass="btn btn-primary" ButtonType="Button" ShowSelectButton="true" ShowDeleteButton="true" SelectText="Editar" ItemStyle-Width="200px"/>
                 
             </Columns>

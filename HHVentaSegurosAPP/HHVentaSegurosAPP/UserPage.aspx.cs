@@ -4,65 +4,28 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using HHVentaSegurosAPP.Services;
+using HHVentaSegurosAPP.Shared;
 
 namespace HHVentaSegurosAPP
 {
     public partial class UserPage : System.Web.UI.Page
     {
-        private void GetUsers()
+        private void FillDataGrid()
         {
-            WSHHVentaSeguros.HHVentaSergurosWS service = new WSHHVentaSeguros.HHVentaSergurosWS();
-
-            WSHHVentaSeguros.ClsUsuario[] users = service.GetUsers();
-            
+            WSHHVentaSeguros.ClsUsuario[] users = UserService.GetUsers();
             grdUsuarios.DataSource = null;
             grdUsuarios.DataBind();
             grdUsuarios.DataSource = users;
             grdUsuarios.DataBind();
         }
 
-        private void CreateUser()
-        {
-            WSHHVentaSeguros.HHVentaSergurosWS service = new WSHHVentaSeguros.HHVentaSergurosWS();
-
-            string vMessage = service.InsertUser(txtNombreCompleto.Text, txtNombreUsuario.Text, txtContrasena.Text,1);
-
-            GetUsers();
-            clsShared.ShowAlert(alertMessage, vMessage);
-            ViewState["ShowAlert"] = true;
-            //clsShared.Mensaje(vMessage, Page, this.GetType());
-        }
-
-        private void UpdateUser()
-        {
-            WSHHVentaSeguros.HHVentaSergurosWS service = new WSHHVentaSeguros.HHVentaSergurosWS();
-
-            string vMessage = service.UpdateUser(Convert.ToInt32(txtIdUsuario.Text),txtNombreCompleto.Text, txtNombreUsuario.Text, txtContrasena.Text,1);
-
-            GetUsers();
-
-            clsShared.ShowAlert(alertMessage, vMessage);
-            ViewState["ShowAlert"] = true;
-            //clsShared.Mensaje(vMessage, Page, this.GetType());
-        }
-        private void DeleteUser(int userId)
-        {
-            WSHHVentaSeguros.HHVentaSergurosWS service = new WSHHVentaSeguros.HHVentaSergurosWS();
-
-            string vMessage = service.DeleteUser(userId);
-
-            GetUsers();
-
-            clsShared.ShowAlert(alertMessage, vMessage);
-            ViewState["ShowAlert"] = true;
-            //clsShared.Mensaje(vMessage, Page, this.GetType());
-        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!Page.IsPostBack)
             {
                 InitVariables();
-                GetUsers();
+                FillDataGrid();
                 ViewState["Mode"] = 'C';
                 ViewState["ShowAlert"] = false;
             }
@@ -79,23 +42,29 @@ namespace HHVentaSegurosAPP
 
         protected void btnSaveUser_Click(object sender, EventArgs e)
         {
+            string message = string.Empty;
+
             if(ViewState["Mode"].ToString() == "C")
             {
-                CreateUser();
+                message = UserService.CreateUser(txtNombreCompleto.Text, txtNombreUsuario.Text, txtContrasena.Text, Master.currUser.IdUsuario);
             }
             else
             {
-                UpdateUser();
+               message = UserService.UpdateUser(Convert.ToInt32(txtIdUsuario.Text), txtNombreCompleto.Text, txtNombreUsuario.Text, txtContrasena.Text, Master.currUser.IdUsuario);
             }
+
+            clsShared.ShowAlert(alertMessage, message);
+            ViewState["ShowAlert"] = true;
+            FillDataGrid();
             ClearInputs();
-            ToggleInputs();
+            EnableInputs(false);
         }
 
         protected void btnNewUser_Click(object sender, EventArgs e)
         {
             ViewState["Mode"] = 'C';
             ClearInputs();
-            ToggleInputs();
+            EnableInputs(true);
         }
 
         protected void grdUsuarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -109,15 +78,15 @@ namespace HHVentaSegurosAPP
 
             ViewState["Mode"] = 'M';
 
-            ToggleInputs();
+            EnableInputs(true);
         }
 
-        private void ToggleInputs()
+        private void EnableInputs(bool enabled)
         {
-            btnSaveUser.Enabled = !btnSaveUser.Enabled;
-            txtContrasena.Enabled = !txtContrasena.Enabled;
-            txtNombreCompleto.Enabled = !txtNombreCompleto.Enabled;
-            txtNombreUsuario.Enabled = !txtNombreUsuario.Enabled;
+            btnSaveUser.Enabled = enabled;
+            txtContrasena.Enabled = enabled;
+            txtNombreCompleto.Enabled = enabled;
+            txtNombreUsuario.Enabled = enabled;
         }
 
         private void ClearInputs()
@@ -125,13 +94,18 @@ namespace HHVentaSegurosAPP
             txtContrasena.Text = string.Empty;
             txtNombreCompleto.Text = string.Empty;
             txtNombreUsuario.Text = string.Empty;
+            txtIdUsuario.Text = string.Empty;
         }
 
         protected void grdUsuarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             int userId = Convert.ToInt32(grdUsuarios.Rows[e.RowIndex].Cells[0].Text);
 
-            DeleteUser(userId);
+            string message = UserService.DeleteUser(userId);
+
+            FillDataGrid();
+            clsShared.ShowAlert(alertMessage, message);
+            ViewState["ShowAlert"] = true;
         }
         protected void dissmisAlert_Click(object sender, EventArgs e)
         {

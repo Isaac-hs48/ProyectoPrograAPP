@@ -94,5 +94,19 @@ namespace HHVentaSegurosAPP
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdUsuarios;
+
+        /// <summary>
+        /// Propiedad Master.
+        /// </summary>
+        /// <remarks>
+        /// Propiedad generada automáticamente.
+        /// </remarks>
+        public new HHVentaSegurosAPP.Index Master
+        {
+            get
+            {
+                return ((HHVentaSegurosAPP.Index)(base.Master));
+            }
+        }
     }
 }

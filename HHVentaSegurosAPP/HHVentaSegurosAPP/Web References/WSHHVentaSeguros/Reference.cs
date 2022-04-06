@@ -117,7 +117,7 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsertUser", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string InsertUser(string nombre, string usuario, string contrasena, int idCreadoPor) {
+        public string InsertUser(string nombre, string usuario, string contrasena, string idCreadoPor) {
             object[] results = this.Invoke("InsertUser", new object[] {
                         nombre,
                         usuario,
@@ -127,12 +127,12 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
         }
         
         /// <remarks/>
-        public void InsertUserAsync(string nombre, string usuario, string contrasena, int idCreadoPor) {
+        public void InsertUserAsync(string nombre, string usuario, string contrasena, string idCreadoPor) {
             this.InsertUserAsync(nombre, usuario, contrasena, idCreadoPor, null);
         }
         
         /// <remarks/>
-        public void InsertUserAsync(string nombre, string usuario, string contrasena, int idCreadoPor, object userState) {
+        public void InsertUserAsync(string nombre, string usuario, string contrasena, string idCreadoPor, object userState) {
             if ((this.InsertUserOperationCompleted == null)) {
                 this.InsertUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsertUserOperationCompleted);
             }
