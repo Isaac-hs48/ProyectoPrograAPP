@@ -2056,6 +2056,7 @@
     <Content Include="AdminLTE-3.2.0-rc\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="AdminLTE-3.2.0-rc\plugins\uplot\uPlot.min.css" />
     <Content Include="AdminLTE-3.2.0-rc\starter.html" />
+    <Content Include="CustomerPage.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="UserPage.aspx" />
@@ -2066,10 +2067,21 @@
     <Content Include="Web References\WSHHVentaSeguros\ClsUsuario.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
+    <Content Include="Web References\WSHHVentaSeguros\ClsCliente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\WSHHVentaSeguros\HHVentaSergurosWS.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerPage.aspx.cs">
+      <DependentUpon>CustomerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPage.aspx.designer.cs">
+      <DependentUpon>CustomerPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Shared\clsShared.cs" />
     <Compile Include="Home.aspx.cs">
@@ -2342,9 +2354,6 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>HHVentaSegurosAPP_WSHHVentaSeguros_HHVentaSergurosWS</CachedSettingsPropName>
     </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\UserPage.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -34,8 +34,8 @@
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="IdCreadoPor" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="IdModificadoPor" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="FechaCreacion" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="FechaModificacion" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCreadoPor" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaModificadoPor" type="s:dateTime" />
         </s:sequence>
       </s:complexType>
       <s:element name="InsertUser">
@@ -87,6 +87,89 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetCustomers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCustomersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomersResult" type="tns:ArrayOfClsCliente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsCliente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClsCliente" nillable="true" type="tns:ClsCliente" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClsCliente">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClsAuditoria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IdCliente" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NombreCompleto" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoCedula" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NumeroCedula" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NumeroTelefono" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CorreoElectronico" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InsertCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroTelefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correoElectronico" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCreadoPor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertCustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idCliente" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroTelefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correoElectronico" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idModificadoPor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pIdCustomer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteCustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetUsersSoapIn">
@@ -113,6 +196,30 @@
   <wsdl:message name="DeleteUserSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
   </wsdl:message>
+  <wsdl:message name="GetCustomersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomers" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCustomer" />
+  </wsdl:message>
+  <wsdl:message name="InsertCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCustomer" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCustomerResponse" />
+  </wsdl:message>
   <wsdl:portType name="HHVentaSergurosWSSoap">
     <wsdl:operation name="GetUsers">
       <wsdl:input message="tns:GetUsersSoapIn" />
@@ -129,6 +236,22 @@
     <wsdl:operation name="DeleteUser">
       <wsdl:input message="tns:DeleteUserSoapIn" />
       <wsdl:output message="tns:DeleteUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomers">
+      <wsdl:input message="tns:GetCustomersSoapIn" />
+      <wsdl:output message="tns:GetCustomersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustomer">
+      <wsdl:input message="tns:InsertCustomerSoapIn" />
+      <wsdl:output message="tns:InsertCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input message="tns:UpdateCustomerSoapIn" />
+      <wsdl:output message="tns:UpdateCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <wsdl:input message="tns:DeleteCustomerSoapIn" />
+      <wsdl:output message="tns:DeleteCustomerSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="HHVentaSergurosWSSoap" type="tns:HHVentaSergurosWSSoap">
@@ -169,6 +292,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCustomers">
+      <soap:operation soapAction="http://tempuri.org/GetCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustomer">
+      <soap:operation soapAction="http://tempuri.org/InsertCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap:operation soapAction="http://tempuri.org/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <soap:operation soapAction="http://tempuri.org/DeleteCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="HHVentaSergurosWSSoap12" type="tns:HHVentaSergurosWSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -201,6 +360,42 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteUser">
       <soap12:operation soapAction="http://tempuri.org/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomers">
+      <soap12:operation soapAction="http://tempuri.org/GetCustomers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustomer">
+      <soap12:operation soapAction="http://tempuri.org/InsertCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <soap12:operation soapAction="http://tempuri.org/DeleteCustomer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
