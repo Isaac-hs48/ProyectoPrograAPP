@@ -2057,6 +2057,7 @@
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="SupplierPage.aspx" />
     <Content Include="UserPage.aspx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -2067,6 +2068,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <Content Include="Web References\WSHHVentaSeguros\ClsCliente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WSHHVentaSeguros\ClsProveedor.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <None Include="Web References\WSHHVentaSeguros\HHVentaSergurosWS.disco" />
@@ -2088,6 +2092,7 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\SupplierService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Shared\clsShared.cs" />
     <Compile Include="Home.aspx.cs">
@@ -2116,6 +2121,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierPage.aspx.cs">
+      <DependentUpon>SupplierPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupplierPage.aspx.designer.cs">
+      <DependentUpon>SupplierPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserPage.aspx.cs">
       <DependentUpon>UserPage.aspx</DependentUpon>

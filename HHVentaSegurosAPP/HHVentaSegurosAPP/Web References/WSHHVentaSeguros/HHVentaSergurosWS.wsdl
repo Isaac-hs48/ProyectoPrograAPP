@@ -170,6 +170,92 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetSuppliers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSuppliersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSuppliersResult" type="tns:ArrayOfClsProveedor" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsProveedor">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClsProveedor" nillable="true" type="tns:ClsProveedor" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClsProveedor">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClsAuditoria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IdProveedor" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="NombreCompleto" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoCedula" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NumeroCedula" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NumeroTelefono" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CorreoElectronico" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InsertSupplier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroTelefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correoElectronico" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCreadoPor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSupplierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertSupplierResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSupplier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProveedor" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroCedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroTelefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="correoElectronico" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idModificadoPor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSupplierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateSupplierResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSupplier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pIdSupplier" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSupplierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteSupplierResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetUsersSoapIn">
@@ -220,6 +306,30 @@
   <wsdl:message name="DeleteCustomerSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteCustomerResponse" />
   </wsdl:message>
+  <wsdl:message name="GetSuppliersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSuppliers" />
+  </wsdl:message>
+  <wsdl:message name="GetSuppliersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSuppliersResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertSupplierSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertSupplier" />
+  </wsdl:message>
+  <wsdl:message name="InsertSupplierSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSupplierSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSupplier" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSupplierSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSupplierSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSupplier" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSupplierSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierResponse" />
+  </wsdl:message>
   <wsdl:portType name="HHVentaSergurosWSSoap">
     <wsdl:operation name="GetUsers">
       <wsdl:input message="tns:GetUsersSoapIn" />
@@ -252,6 +362,22 @@
     <wsdl:operation name="DeleteCustomer">
       <wsdl:input message="tns:DeleteCustomerSoapIn" />
       <wsdl:output message="tns:DeleteCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliers">
+      <wsdl:input message="tns:GetSuppliersSoapIn" />
+      <wsdl:output message="tns:GetSuppliersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSupplier">
+      <wsdl:input message="tns:InsertSupplierSoapIn" />
+      <wsdl:output message="tns:InsertSupplierSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplier">
+      <wsdl:input message="tns:UpdateSupplierSoapIn" />
+      <wsdl:output message="tns:UpdateSupplierSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplier">
+      <wsdl:input message="tns:DeleteSupplierSoapIn" />
+      <wsdl:output message="tns:DeleteSupplierSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="HHVentaSergurosWSSoap" type="tns:HHVentaSergurosWSSoap">
@@ -328,6 +454,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetSuppliers">
+      <soap:operation soapAction="http://tempuri.org/GetSuppliers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSupplier">
+      <soap:operation soapAction="http://tempuri.org/InsertSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplier">
+      <soap:operation soapAction="http://tempuri.org/UpdateSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplier">
+      <soap:operation soapAction="http://tempuri.org/DeleteSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="HHVentaSergurosWSSoap12" type="tns:HHVentaSergurosWSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -396,6 +558,42 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteCustomer">
       <soap12:operation soapAction="http://tempuri.org/DeleteCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliers">
+      <soap12:operation soapAction="http://tempuri.org/GetSuppliers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSupplier">
+      <soap12:operation soapAction="http://tempuri.org/InsertSupplier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplier">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSupplier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplier">
+      <soap12:operation soapAction="http://tempuri.org/DeleteSupplier" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

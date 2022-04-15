@@ -1,9 +1,9 @@
-﻿<%@ Page Title="HH Ventas Seguros | Clientes" Language="C#" MasterPageFile="~/Index.Master" AutoEventWireup="true" CodeBehind="CustomerPage.aspx.cs" Inherits="HHVentaSegurosAPP.Pages.CustomerPage" %>
+﻿<%@ Page Title="HH Ventas Seguros | Proveedores" Language="C#" MasterPageFile="~/Index.Master" AutoEventWireup="true" CodeBehind="SupplierPage.aspx.cs" Inherits="HHVentaSegurosAPP.SupplierPage" %>
 <%@ MasterType VirtualPath="~/Index.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <section class="content">
+     <section class="content">
       <div class="container-fluid">
 
           <%if (Convert.ToBoolean(ViewState["ShowAlert"]))
@@ -18,14 +18,14 @@
 
            <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Mantenimiento de clientes</h3>
+                <h3 class="card-title">Mantenimiento de proveedores</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
                 <div class="card-body d-flex justify-content-start flex-column">
                     <div class="form-group col-1">
                     <label for="exampleInputEmail1">Id</label>
-                       <asp:TextBox ID="txtIdCliente" runat="server" CssClass="form-control" ></asp:TextBox>
+                       <asp:TextBox ID="txtIdProveedor" runat="server" CssClass="form-control" ></asp:TextBox>
                   </div>
                     <div class="d-flex justify-content-start">
                       <div class="form-group col-3 mr-3">
@@ -52,26 +52,33 @@
                           <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" Type="email"></asp:TextBox>
 
                       </div>
+
+                        <div class="form-group col-3 mr-3" >
+                        <label for="exampleInputPassword1">Descripción</label>
+                          <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" Type="text"></asp:TextBox>
+
+                      </div>
                   </div>
                 </div>
 
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <asp:Button ID="btnNewCustomer" runat="server" Text="Nuevo"  CssClass="btn btn-primary" OnClick="btnNewCustomer_Click"/>
-                    <asp:Button ID="btnSaveCustomer" runat="server" Text="Guardar"  CssClass="btn btn-primary" OnClick="btnSaveCustomer_Click"/>
+                  <asp:Button ID="btnNewProveedor" runat="server" Text="Nuevo"  CssClass="btn btn-primary" OnClick="btnNewSupplier_Click"/>
+                    <asp:Button ID="btnSaveProveedor" runat="server" Text="Guardar"  CssClass="btn btn-primary" OnClick="btnSaveSupplier_Click"/>
                 </div>
             </div>
 
 
-        <asp:GridView ID="grdClientes" runat="server" AutoGenerateColumns="false" PageSize="20" CssClass="table table-bordered" OnSelectedIndexChanged="grdClientes_SelectedIndexChanged" OnRowDeleting="grdClientes_RowDeleting"> 
+        <asp:GridView ID="grdProveedor" runat="server" AutoGenerateColumns="false" PageSize="20" CssClass="table table-bordered" OnSelectedIndexChanged="grdProveedor_SelectedIndexChanged" OnRowDeleting="grdProveedor_RowDeleting"> 
             <Columns>
-                <asp:BoundField DataField="IdCliente" HeaderText="Id Cliente"/>
+                <asp:BoundField DataField="IdProveedor" HeaderText="Id Proveedor"/>
                 <asp:BoundField DataField="NombreCompleto" HeaderText="Nombre Completo"/>
                 <asp:BoundField DataField="TipoCedula" HeaderText="Tipo Cedula"/>
                 <asp:BoundField DataField="NumeroCedula"  HeaderText="Numero Cedula"/>
                 <asp:BoundField DataField="NumeroTelefono"  HeaderText="Numero tel."/>
                 <asp:BoundField DataField="CorreoElectronico"  HeaderText="Correo"/>
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripción"/>
                 <asp:CommandField ControlStyle-CssClass="btn btn-primary" ButtonType="Button" ShowSelectButton="true" ShowDeleteButton="true" SelectText="Editar" ItemStyle-Width="200px"/>
                 
             </Columns>

@@ -46,6 +46,14 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
         
         private System.Threading.SendOrPostCallback DeleteCustomerOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetSuppliersOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback InsertSupplierOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UpdateSupplierOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeleteSupplierOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -107,6 +115,18 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
         
         /// <remarks/>
         public event DeleteCustomerCompletedEventHandler DeleteCustomerCompleted;
+        
+        /// <remarks/>
+        public event GetSuppliersCompletedEventHandler GetSuppliersCompleted;
+        
+        /// <remarks/>
+        public event InsertSupplierCompletedEventHandler InsertSupplierCompleted;
+        
+        /// <remarks/>
+        public event UpdateSupplierCompletedEventHandler UpdateSupplierCompleted;
+        
+        /// <remarks/>
+        public event DeleteSupplierCompletedEventHandler DeleteSupplierCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetUsers", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -373,6 +393,146 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetSuppliers", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ClsProveedor[] GetSuppliers() {
+            object[] results = this.Invoke("GetSuppliers", new object[0]);
+            return ((ClsProveedor[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetSuppliersAsync() {
+            this.GetSuppliersAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetSuppliersAsync(object userState) {
+            if ((this.GetSuppliersOperationCompleted == null)) {
+                this.GetSuppliersOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetSuppliersOperationCompleted);
+            }
+            this.InvokeAsync("GetSuppliers", new object[0], this.GetSuppliersOperationCompleted, userState);
+        }
+        
+        private void OnGetSuppliersOperationCompleted(object arg) {
+            if ((this.GetSuppliersCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetSuppliersCompleted(this, new GetSuppliersCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsertSupplier", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string InsertSupplier(string nombre, string tipoCedula, string numeroCedula, string numeroTelefono, string correoElectronico, string descripcion, int idCreadoPor) {
+            object[] results = this.Invoke("InsertSupplier", new object[] {
+                        nombre,
+                        tipoCedula,
+                        numeroCedula,
+                        numeroTelefono,
+                        correoElectronico,
+                        descripcion,
+                        idCreadoPor});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void InsertSupplierAsync(string nombre, string tipoCedula, string numeroCedula, string numeroTelefono, string correoElectronico, string descripcion, int idCreadoPor) {
+            this.InsertSupplierAsync(nombre, tipoCedula, numeroCedula, numeroTelefono, correoElectronico, descripcion, idCreadoPor, null);
+        }
+        
+        /// <remarks/>
+        public void InsertSupplierAsync(string nombre, string tipoCedula, string numeroCedula, string numeroTelefono, string correoElectronico, string descripcion, int idCreadoPor, object userState) {
+            if ((this.InsertSupplierOperationCompleted == null)) {
+                this.InsertSupplierOperationCompleted = new System.Threading.SendOrPostCallback(this.OnInsertSupplierOperationCompleted);
+            }
+            this.InvokeAsync("InsertSupplier", new object[] {
+                        nombre,
+                        tipoCedula,
+                        numeroCedula,
+                        numeroTelefono,
+                        correoElectronico,
+                        descripcion,
+                        idCreadoPor}, this.InsertSupplierOperationCompleted, userState);
+        }
+        
+        private void OnInsertSupplierOperationCompleted(object arg) {
+            if ((this.InsertSupplierCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.InsertSupplierCompleted(this, new InsertSupplierCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UpdateSupplier", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string UpdateSupplier(int idProveedor, string nombre, string tipoCedula, string numeroCedula, string numeroTelefono, string correoElectronico, string descripcion, int idModificadoPor) {
+            object[] results = this.Invoke("UpdateSupplier", new object[] {
+                        idProveedor,
+                        nombre,
+                        tipoCedula,
+                        numeroCedula,
+                        numeroTelefono,
+                        correoElectronico,
+                        descripcion,
+                        idModificadoPor});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UpdateSupplierAsync(int idProveedor, string nombre, string tipoCedula, string numeroCedula, string numeroTelefono, string correoElectronico, string descripcion, int idModificadoPor) {
+            this.UpdateSupplierAsync(idProveedor, nombre, tipoCedula, numeroCedula, numeroTelefono, correoElectronico, descripcion, idModificadoPor, null);
+        }
+        
+        /// <remarks/>
+        public void UpdateSupplierAsync(int idProveedor, string nombre, string tipoCedula, string numeroCedula, string numeroTelefono, string correoElectronico, string descripcion, int idModificadoPor, object userState) {
+            if ((this.UpdateSupplierOperationCompleted == null)) {
+                this.UpdateSupplierOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateSupplierOperationCompleted);
+            }
+            this.InvokeAsync("UpdateSupplier", new object[] {
+                        idProveedor,
+                        nombre,
+                        tipoCedula,
+                        numeroCedula,
+                        numeroTelefono,
+                        correoElectronico,
+                        descripcion,
+                        idModificadoPor}, this.UpdateSupplierOperationCompleted, userState);
+        }
+        
+        private void OnUpdateSupplierOperationCompleted(object arg) {
+            if ((this.UpdateSupplierCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateSupplierCompleted(this, new UpdateSupplierCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteSupplier", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string DeleteSupplier(int pIdSupplier) {
+            object[] results = this.Invoke("DeleteSupplier", new object[] {
+                        pIdSupplier});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DeleteSupplierAsync(int pIdSupplier) {
+            this.DeleteSupplierAsync(pIdSupplier, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteSupplierAsync(int pIdSupplier, object userState) {
+            if ((this.DeleteSupplierOperationCompleted == null)) {
+                this.DeleteSupplierOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteSupplierOperationCompleted);
+            }
+            this.InvokeAsync("DeleteSupplier", new object[] {
+                        pIdSupplier}, this.DeleteSupplierOperationCompleted, userState);
+        }
+        
+        private void OnDeleteSupplierOperationCompleted(object arg) {
+            if ((this.DeleteSupplierCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteSupplierCompleted(this, new DeleteSupplierCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -461,6 +621,7 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ClsProveedor))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ClsCliente))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ClsUsuario))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
@@ -515,6 +676,111 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
             }
             set {
                 this.fechaModificadoPorField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ClsProveedor : ClsAuditoria {
+        
+        private int idProveedorField;
+        
+        private string nombreCompletoField;
+        
+        private string tipoCedulaField;
+        
+        private string numeroCedulaField;
+        
+        private string numeroTelefonoField;
+        
+        private string correoElectronicoField;
+        
+        private string descripcionField;
+        
+        private string estadoField;
+        
+        /// <remarks/>
+        public int IdProveedor {
+            get {
+                return this.idProveedorField;
+            }
+            set {
+                this.idProveedorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string NombreCompleto {
+            get {
+                return this.nombreCompletoField;
+            }
+            set {
+                this.nombreCompletoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TipoCedula {
+            get {
+                return this.tipoCedulaField;
+            }
+            set {
+                this.tipoCedulaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string NumeroCedula {
+            get {
+                return this.numeroCedulaField;
+            }
+            set {
+                this.numeroCedulaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string NumeroTelefono {
+            get {
+                return this.numeroTelefonoField;
+            }
+            set {
+                this.numeroTelefonoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CorreoElectronico {
+            get {
+                return this.correoElectronicoField;
+            }
+            set {
+                this.correoElectronicoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Estado {
+            get {
+                return this.estadoField;
+            }
+            set {
+                this.estadoField = value;
             }
         }
     }
@@ -807,6 +1073,110 @@ namespace HHVentaSegurosAPP.WSHHVentaSeguros {
         private object[] results;
         
         internal DeleteCustomerCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetSuppliersCompletedEventHandler(object sender, GetSuppliersCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetSuppliersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetSuppliersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ClsProveedor[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ClsProveedor[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void InsertSupplierCompletedEventHandler(object sender, InsertSupplierCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class InsertSupplierCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal InsertSupplierCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void UpdateSupplierCompletedEventHandler(object sender, UpdateSupplierCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateSupplierCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UpdateSupplierCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void DeleteSupplierCompletedEventHandler(object sender, DeleteSupplierCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DeleteSupplierCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DeleteSupplierCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace HHVentaSegurosAPP.Pages
+namespace HHVentaSegurosAPP
 {
 
 
-    public partial class CustomerPage
+    public partial class SupplierPage
     {
 
         /// <summary>
@@ -33,13 +33,13 @@ namespace HHVentaSegurosAPP.Pages
         protected global::System.Web.UI.WebControls.Button dissmisAlert;
 
         /// <summary>
-        /// Control txtIdCliente.
+        /// Control txtIdProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtIdProveedor;
 
         /// <summary>
         /// Control txtNombreCompleto.
@@ -87,31 +87,40 @@ namespace HHVentaSegurosAPP.Pages
         protected global::System.Web.UI.WebControls.TextBox txtCorreo;
 
         /// <summary>
-        /// Control btnNewCustomer.
+        /// Control txtDescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewCustomer;
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
 
         /// <summary>
-        /// Control btnSaveCustomer.
+        /// Control btnNewProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveCustomer;
+        protected global::System.Web.UI.WebControls.Button btnNewProveedor;
 
         /// <summary>
-        /// Control grdClientes.
+        /// Control btnSaveProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdClientes;
+        protected global::System.Web.UI.WebControls.Button btnSaveProveedor;
+
+        /// <summary>
+        /// Control grdProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdProveedor;
 
         /// <summary>
         /// Propiedad Master.

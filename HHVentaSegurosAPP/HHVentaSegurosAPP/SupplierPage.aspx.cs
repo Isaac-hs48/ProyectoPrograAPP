@@ -7,22 +7,21 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace HHVentaSegurosAPP.Pages
+namespace HHVentaSegurosAPP
 {
-    public partial class CustomerPage : System.Web.UI.Page
+    public partial class SupplierPage : System.Web.UI.Page
     {
         private void FillDataGrid()
         {
-            WSHHVentaSeguros.ClsCliente[] customers = CustomerService.GetCustomers();
-            grdClientes.DataSource = null;
-            grdClientes.DataBind();
-            grdClientes.DataSource = customers;
-            grdClientes.DataBind();
+            WSHHVentaSeguros.ClsProveedor[] suppliers = SupplierService.GetSuppliers();
+            grdProveedor.DataSource = null;
+            grdProveedor.DataBind();
+            grdProveedor.DataSource = suppliers;
+            grdProveedor.DataBind();
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
                 InitVariables();
                 FillDataGrid();
@@ -36,58 +35,60 @@ namespace HHVentaSegurosAPP.Pages
         }
         private void InitVariables()
         {
-            btnSaveCustomer.Enabled = false;
+            btnSaveProveedor.Enabled = false;
             txtCorreo.Enabled = false;
             txtNombreCompleto.Enabled = false;
-            txtIdCliente.Enabled = false;
+            txtIdProveedor.Enabled = false;
             txtNumCedula.Enabled = false;
             txtNumTelefono.Enabled = false;
             cedulasList.Enabled = false;
+            txtDescripcion.Enabled = false;
         }
 
         private void EnableInputs(bool enabled)
         {
-            btnSaveCustomer.Enabled = enabled;
+            btnSaveProveedor.Enabled = enabled;
             txtCorreo.Enabled = enabled;
             txtNombreCompleto.Enabled = enabled;
             txtNumCedula.Enabled = enabled;
             txtNumTelefono.Enabled = enabled;
             cedulasList.Enabled = enabled;
+            txtDescripcion.Enabled = enabled;
         }
 
         private void ClearInputs()
         {
             txtCorreo.Text = string.Empty;
             txtNombreCompleto.Text = string.Empty;
-            txtIdCliente.Text = string.Empty;
+            txtIdProveedor.Text = string.Empty;
             txtNumCedula.Text = string.Empty;
             txtNumTelefono.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
         }
-
 
         protected void dissmisAlert_Click(object sender, EventArgs e)
         {
             ViewState["ShowAlert"] = false;
         }
 
-        protected void btnNewCustomer_Click(object sender, EventArgs e)
+        protected void btnNewSupplier_Click(object sender, EventArgs e)
         {
             ViewState["Mode"] = 'C';
             ClearInputs();
             EnableInputs(true);
         }
 
-        protected void btnSaveCustomer_Click(object sender, EventArgs e)
+        protected void btnSaveSupplier_Click(object sender, EventArgs e)
         {
             string message = string.Empty;
 
             if (ViewState["Mode"].ToString() == "C")
             {
-                message = CustomerService.InsertCustomer(txtNombreCompleto.Text, cedulasList.SelectedValue, txtNumCedula.Text, txtNumTelefono.Text, txtCorreo.Text, Master.currUser.IdUsuario);
+                message = SupplierService.InsertSupplier(txtNombreCompleto.Text, cedulasList.SelectedValue, txtNumCedula.Text, txtNumTelefono.Text, txtCorreo.Text, txtDescripcion.Text, Master.currUser.IdUsuario);
             }
             else
             {
-                message = CustomerService.UpdateCustomer(Convert.ToInt32(txtIdCliente.Text), txtNombreCompleto.Text, cedulasList.SelectedValue, txtNumCedula.Text, txtNumTelefono.Text, txtCorreo.Text, Master.currUser.IdUsuario);
+                message = SupplierService.UpdateSupplier(Convert.ToInt32(txtIdProveedor.Text), txtNombreCompleto.Text, cedulasList.SelectedValue, txtNumCedula.Text, txtNumTelefono.Text, txtCorreo.Text,txtDescripcion.Text, Master.currUser.IdUsuario);
             }
 
             clsShared.ShowAlert(alertMessage, message);
@@ -97,27 +98,28 @@ namespace HHVentaSegurosAPP.Pages
             EnableInputs(false);
         }
 
-        protected void grdClientes_SelectedIndexChanged(object sender, EventArgs e)
+        protected void grdProveedor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow selectedRow = grdClientes.SelectedRow;
+            GridViewRow selectedRow = grdProveedor.SelectedRow;
 
-            txtIdCliente.Text = selectedRow.Cells[0].Text;
+            txtIdProveedor.Text = selectedRow.Cells[0].Text;
             txtNombreCompleto.Text = selectedRow.Cells[1].Text;
             cedulasList.SelectedValue = selectedRow.Cells[2].Text;
             txtNumCedula.Text = selectedRow.Cells[3].Text;
             txtNumTelefono.Text = selectedRow.Cells[4].Text;
             txtCorreo.Text = selectedRow.Cells[5].Text;
+            txtDescripcion.Text = selectedRow.Cells[6].Text;
 
             ViewState["Mode"] = 'M';
 
             EnableInputs(true);
         }
 
-        protected void grdClientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void grdProveedor_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int customerId = Convert.ToInt32(grdClientes.Rows[e.RowIndex].Cells[0].Text);
+            int SupplierId = Convert.ToInt32(grdProveedor.Rows[e.RowIndex].Cells[0].Text);
 
-            string message = CustomerService.DeleteCustomer(customerId);
+            string message = SupplierService.DeleteSupplier(SupplierId);
 
             FillDataGrid();
             clsShared.ShowAlert(alertMessage, message);
