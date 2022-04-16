@@ -51,7 +51,9 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -2057,6 +2059,9 @@
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="AssetPage.aspx" />
+    <Content Include="SalePage.aspx" />
+    <Content Include="ServicePage.aspx" />
     <Content Include="SupplierPage.aspx" />
     <Content Include="UserPage.aspx" />
     <None Include="packages.config" />
@@ -2071,6 +2076,15 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <Content Include="Web References\WSHHVentaSeguros\ClsProveedor.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WSHHVentaSeguros\clsActivo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WSHHVentaSeguros\clsServicio.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WSHHVentaSeguros\clsVenta.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <None Include="Web References\WSHHVentaSeguros\HHVentaSergurosWS.disco" />
@@ -2091,7 +2105,24 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AssetPage.aspx.cs">
+      <DependentUpon>AssetPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AssetPage.aspx.designer.cs">
+      <DependentUpon>AssetPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalePage.aspx.cs">
+      <DependentUpon>SalePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalePage.aspx.designer.cs">
+      <DependentUpon>SalePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AssetService.cs" />
     <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\SaleService.cs" />
+    <Compile Include="Services\ServicesService.cs" />
     <Compile Include="Services\SupplierService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Shared\clsShared.cs" />
@@ -2121,6 +2152,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ServicePage.aspx.cs">
+      <DependentUpon>ServicePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServicePage.aspx.designer.cs">
+      <DependentUpon>ServicePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="SupplierPage.aspx.cs">
       <DependentUpon>SupplierPage.aspx</DependentUpon>

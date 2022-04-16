@@ -256,6 +256,240 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetSales">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSalesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSalesResult" type="tns:ArrayOfClsVenta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsVenta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsVenta" nillable="true" type="tns:clsVenta" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsVenta">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClsAuditoria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="idVenta" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="idServicio" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="idCliente" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="identificacion" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="totalColones" type="s:float" />
+              <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InsertSale">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idServicio" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCliente" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="identificacion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalColones" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCreadoPor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertSaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertSaleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSale">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idVenta" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idServicio" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCliente" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="identificacion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="totalColones" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="idModificadoPor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateSaleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSale">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pIdVenta" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSaleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteSaleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServices">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetServicesResult" type="tns:ArrayOfClsServicio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsServicio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsServicio" nillable="true" type="tns:clsServicio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsServicio">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClsAuditoria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="idServicio" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="tipoServicio" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="precioColones" type="s:float" />
+              <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InsertService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tipoServicio" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="precioColones" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCreadoPor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idServicio" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoServicio" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="precioColones" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="idModificadoPor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pIdServicio" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteServiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssets">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAssetsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssetsResult" type="tns:ArrayOfClsActivo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClsActivo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsActivo" nillable="true" type="tns:clsActivo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsActivo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ClsAuditoria">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="idActivo" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="precioColones" type="s:float" />
+              <s:element minOccurs="1" maxOccurs="1" name="vidaUtilAnos" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="valorDesechoColones" type="s:float" />
+              <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InsertAsset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="precioColones" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="vidaUtilAnos" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="valorDesechoColones" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="idCreadoPor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAssetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertAssetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAsset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idActivo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="precioColones" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="vidaUtilAnos" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="valorDesechoColones" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="idModificadoPor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAssetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateAssetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAsset">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pIdActivo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAssetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteAssetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetUsersSoapIn">
@@ -330,6 +564,78 @@
   <wsdl:message name="DeleteSupplierSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteSupplierResponse" />
   </wsdl:message>
+  <wsdl:message name="GetSalesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSales" />
+  </wsdl:message>
+  <wsdl:message name="GetSalesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertSaleSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertSale" />
+  </wsdl:message>
+  <wsdl:message name="InsertSaleSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSaleSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSale" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSaleSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSaleSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSale" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSaleSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSaleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServicesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServices" />
+  </wsdl:message>
+  <wsdl:message name="GetServicesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertService" />
+  </wsdl:message>
+  <wsdl:message name="InsertServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateService" />
+  </wsdl:message>
+  <wsdl:message name="UpdateServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteService" />
+  </wsdl:message>
+  <wsdl:message name="DeleteServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssets" />
+  </wsdl:message>
+  <wsdl:message name="GetAssetsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertAssetSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertAsset" />
+  </wsdl:message>
+  <wsdl:message name="InsertAssetSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertAssetResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAsset" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAssetSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAssetResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAssetSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteAsset" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAssetSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteAssetResponse" />
+  </wsdl:message>
   <wsdl:portType name="HHVentaSergurosWSSoap">
     <wsdl:operation name="GetUsers">
       <wsdl:input message="tns:GetUsersSoapIn" />
@@ -378,6 +684,54 @@
     <wsdl:operation name="DeleteSupplier">
       <wsdl:input message="tns:DeleteSupplierSoapIn" />
       <wsdl:output message="tns:DeleteSupplierSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSales">
+      <wsdl:input message="tns:GetSalesSoapIn" />
+      <wsdl:output message="tns:GetSalesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertSale">
+      <wsdl:input message="tns:InsertSaleSoapIn" />
+      <wsdl:output message="tns:InsertSaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSale">
+      <wsdl:input message="tns:UpdateSaleSoapIn" />
+      <wsdl:output message="tns:UpdateSaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSale">
+      <wsdl:input message="tns:DeleteSaleSoapIn" />
+      <wsdl:output message="tns:DeleteSaleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServices">
+      <wsdl:input message="tns:GetServicesSoapIn" />
+      <wsdl:output message="tns:GetServicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertService">
+      <wsdl:input message="tns:InsertServiceSoapIn" />
+      <wsdl:output message="tns:InsertServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateService">
+      <wsdl:input message="tns:UpdateServiceSoapIn" />
+      <wsdl:output message="tns:UpdateServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteService">
+      <wsdl:input message="tns:DeleteServiceSoapIn" />
+      <wsdl:output message="tns:DeleteServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssets">
+      <wsdl:input message="tns:GetAssetsSoapIn" />
+      <wsdl:output message="tns:GetAssetsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAsset">
+      <wsdl:input message="tns:InsertAssetSoapIn" />
+      <wsdl:output message="tns:InsertAssetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAsset">
+      <wsdl:input message="tns:UpdateAssetSoapIn" />
+      <wsdl:output message="tns:UpdateAssetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAsset">
+      <wsdl:input message="tns:DeleteAssetSoapIn" />
+      <wsdl:output message="tns:DeleteAssetSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="HHVentaSergurosWSSoap" type="tns:HHVentaSergurosWSSoap">
@@ -490,6 +844,114 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetSales">
+      <soap:operation soapAction="http://tempuri.org/GetSales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSale">
+      <soap:operation soapAction="http://tempuri.org/InsertSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSale">
+      <soap:operation soapAction="http://tempuri.org/UpdateSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSale">
+      <soap:operation soapAction="http://tempuri.org/DeleteSale" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServices">
+      <soap:operation soapAction="http://tempuri.org/GetServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertService">
+      <soap:operation soapAction="http://tempuri.org/InsertService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateService">
+      <soap:operation soapAction="http://tempuri.org/UpdateService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteService">
+      <soap:operation soapAction="http://tempuri.org/DeleteService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssets">
+      <soap:operation soapAction="http://tempuri.org/GetAssets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAsset">
+      <soap:operation soapAction="http://tempuri.org/InsertAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAsset">
+      <soap:operation soapAction="http://tempuri.org/UpdateAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAsset">
+      <soap:operation soapAction="http://tempuri.org/DeleteAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="HHVentaSergurosWSSoap12" type="tns:HHVentaSergurosWSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -594,6 +1056,114 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteSupplier">
       <soap12:operation soapAction="http://tempuri.org/DeleteSupplier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSales">
+      <soap12:operation soapAction="http://tempuri.org/GetSales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertSale">
+      <soap12:operation soapAction="http://tempuri.org/InsertSale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSale">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSale">
+      <soap12:operation soapAction="http://tempuri.org/DeleteSale" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServices">
+      <soap12:operation soapAction="http://tempuri.org/GetServices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertService">
+      <soap12:operation soapAction="http://tempuri.org/InsertService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateService">
+      <soap12:operation soapAction="http://tempuri.org/UpdateService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteService">
+      <soap12:operation soapAction="http://tempuri.org/DeleteService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssets">
+      <soap12:operation soapAction="http://tempuri.org/GetAssets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAsset">
+      <soap12:operation soapAction="http://tempuri.org/InsertAsset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAsset">
+      <soap12:operation soapAction="http://tempuri.org/UpdateAsset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAsset">
+      <soap12:operation soapAction="http://tempuri.org/DeleteAsset" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

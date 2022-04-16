@@ -88,12 +88,47 @@
             </a>
           </li>
 
+           
+
             <li class="nav-item">
                
             <a href="SupplierPage.aspx" class="nav-link">
               <i class="nav-icon fas fa-boxes"></i>
               <p>
                 Proveedores
+                <%--<span class="right badge badge-danger">New</span>--%>
+              </p>
+            </a>
+          </li>
+
+            <li class="nav-item">
+               
+            <a href="ServicePage.aspx" class="nav-link">
+             <i class="nav-icon fas fa-user-shield"></i>
+              <p>
+                Servicios
+                <%--<span class="right badge badge-danger">New</span>--%>
+              </p>
+            </a>
+          </li>
+
+             <li class="nav-item">
+               
+            <a href="SalePage.aspx" class="nav-link">
+             <i class="nav-icon fas fa-money-bill"></i>
+              <p>
+                Ventas
+                <%--<span class="right badge badge-danger">New</span>--%>
+              </p>
+            </a>
+          </li>
+            
+            <li class="nav-item">
+               
+            <a href="AssetPage.aspx" class="nav-link">
+             <i class="nav-icon fas fa-store-alt"></i>
+              <p>
+                Activos
                 <%--<span class="right badge badge-danger">New</span>--%>
               </p>
             </a>
