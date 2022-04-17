@@ -19,6 +19,17 @@ namespace HHVentaSegurosAPP
             grdServicio.DataSource = services;
             grdServicio.DataBind();
         }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
+            {
+                InitVariables();
+                FillDataGrid();
+                ViewState["Mode"] = 'C';
+                ViewState["ShowAlert"] = false;
+            }
+        }
+        
         private void InitVariables()
         {
             btnGuardarServicio.Enabled = false;
@@ -59,11 +70,11 @@ namespace HHVentaSegurosAPP
 
             if (ViewState["Mode"].ToString() == "C")
             {
-                message = ServicesService.InsertService(txtTipoServicio.Text, (Convert.ToInt32(txtPrecioColones.Text)), Convert.ToInt32(txtIdCreadoPor.Text) );
+                message = ServicesService.InsertService(txtTipoServicio.Text, (Convert.ToInt32(txtPrecioColones.Text)), Master.currUser.IdUsuario);
             }
             else
             {
-                message = ServicesService.UpdateService(Convert.ToInt32(txtIdServicio.Text), txtTipoServicio.Text, Convert.ToInt32(txtPrecioColones.Text), Convert.ToInt32(txtIdModificadoPor.Text));
+                message = ServicesService.UpdateService(Convert.ToInt32(txtIdServicio.Text), txtTipoServicio.Text, Convert.ToInt32(txtPrecioColones.Text), Master.currUser.IdUsuario);
             }
 
             clsShared.ShowAlert(alertMessage, message);

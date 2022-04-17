@@ -60,24 +60,6 @@ namespace HHVentaSegurosAPP
         protected global::System.Web.UI.WebControls.TextBox txtPrecioColones;
 
         /// <summary>
-        /// Control txtIdCreadoPor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdCreadoPor;
-
-        /// <summary>
-        /// Control txtIdModificadoPor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdModificadoPor;
-
-        /// <summary>
         /// Control btnNuevoServicio.
         /// </summary>
         /// <remarks>

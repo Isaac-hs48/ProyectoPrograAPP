@@ -42,22 +42,22 @@ namespace HHVentaSegurosAPP
         protected global::System.Web.UI.WebControls.TextBox txtIdVenta;
 
         /// <summary>
-        /// Control txtIdServicio.
+        /// Control servicesList.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdServicio;
+        protected global::System.Web.UI.WebControls.DropDownList servicesList;
 
         /// <summary>
-        /// Control txtIdCliente.
+        /// Control customerList.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdCliente;
+        protected global::System.Web.UI.WebControls.DropDownList customerList;
 
         /// <summary>
         /// Control txtIdentificacion.
@@ -76,24 +76,6 @@ namespace HHVentaSegurosAPP
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTotalColones;
-
-        /// <summary>
-        /// Control txtIdCreadoPor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdCreadoPor;
-
-        /// <summary>
-        /// Control txtIdModificadoPor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdModificadoPor;
 
         /// <summary>
         /// Control btnNuevaVenta.

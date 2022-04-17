@@ -39,18 +39,6 @@
                       </div>
 
                     </div>
-                    
-                    <div class="d-flex justify-content-start">
-                       
-                        <div class="form-group col-3 mr-3">
-                        <label for="exampleInputEmail1">Id Creado Por</label>
-                           <asp:TextBox ID="txtIdCreadoPor" runat="server" CssClass="form-control" ></asp:TextBox>
-                      </div>
-                        <div class="form-group col-3 mr-3" >
-                        <label for="exampleInputPassword1">Id Modificado Por</label>
-                          <asp:TextBox ID="txtIdModificadoPor" runat="server" CssClass="form-control" Type="email"></asp:TextBox>
-
-                      </div>
                   </div>
                     
                 </div>
@@ -69,8 +57,6 @@
                 <asp:BoundField DataField="idServicio" HeaderText="Id Servicio"/>
                 <asp:BoundField DataField="tipoServicio" HeaderText="Tipo de Seguro"/>
                 <asp:BoundField DataField="precioColones" HeaderText="Precio en Colones"/>
-                <asp:BoundField DataField="idCreadoPor" HeaderText="ID Creado Por"/>
-                <asp:BoundField DataField="idModificadoPor" HeaderText="ID Modificado Por"/>
                 <asp:CommandField ControlStyle-CssClass="btn btn-primary" ButtonType="Button" ShowSelectButton="true" ShowDeleteButton="true" SelectText="Editar" ItemStyle-Width="200px"/>
                 
             </Columns>

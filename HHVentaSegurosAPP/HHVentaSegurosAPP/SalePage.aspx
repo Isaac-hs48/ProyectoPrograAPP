@@ -29,12 +29,14 @@
                   </div>
                     <div class="d-flex justify-content-start">
                       <div class="form-group col-3 mr-3">
-                        <label for="exampleInputEmail1">Id Servicio</label>
-                           <asp:TextBox ID="txtIdServicio" runat="server" CssClass="form-control" ></asp:TextBox>
+                        <label for="exampleInputEmail1">Servicio</label>
+                           <%--<asp:TextBox ID="txtIdServicio" runat="server" CssClass="form-control" ></asp:TextBox>--%>
+                          <asp:DropDownList ID="servicesList" runat="server" CssClass="form-control" OnLoad="ServicesList_SelectedIndexChanged" OnSelectedIndexChanged="ServicesList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                       </div>
                       <div class="form-group col-3 mr-3" >
-                        <label for="exampleInputPassword1">Id Cliente</label>
-                          <asp:TextBox ID="txtIdCliente" runat="server" CssClass="form-control" Type="text"></asp:TextBox>
+                        <label for="exampleInputPassword1">Cliente</label>
+                          <%--<asp:TextBox ID="txtIdCliente" runat="server" CssClass="form-control" Type="text"></asp:TextBox>--%>
+                          <asp:DropDownList ID="customerList" runat="server" CssClass="form-control" ></asp:DropDownList>
                     </div>
                         <div class="form-group col-3 mr-3" >
                         <label for="exampleInputPassword1">Identificacion</label>
@@ -47,16 +49,6 @@
                         <label for="exampleInputPassword1">Total en Colones</label>
                            <asp:TextBox ID="txtTotalColones" runat="server" CssClass="form-control" Type="text" ></asp:TextBox>
                       </div>
-                        <div class="form-group col-3 mr-3">
-                        <label for="exampleInputPassword1">Id Creado Por</label>
-                           <asp:TextBox ID="txtIdCreadoPor" runat="server" CssClass="form-control"  Type="text"></asp:TextBox>
-                      </div>
-                        <div class="form-group col-3 mr-3" >
-                        <label for="exampleInputPassword1">Id Modificado Por</label>
-                          <asp:TextBox ID="txtIdModificadoPor" runat="server" CssClass="form-control" Type="Text"></asp:TextBox>
-
-                      </div>
-                    
                 </div>
 
                 <!-- /.card-body -->
@@ -76,8 +68,6 @@
                 <asp:BoundField DataField="idCliente" HeaderText="Id Cliente"/>
                 <asp:BoundField DataField="identificacion" HeaderText="Identificacion"/>
                 <asp:BoundField DataField="totalColones" HeaderText="Total en Colones"/>
-                <asp:BoundField DataField="idCreadoPor" HeaderText="ID Creado Por"/>
-                <asp:BoundField DataField="idModificadoPor" HeaderText="ID Modificado Por"/>
                 <asp:CommandField ControlStyle-CssClass="btn btn-primary" ButtonType="Button" ShowSelectButton="true" ShowDeleteButton="true" SelectText="Editar" ItemStyle-Width="200px"/>
                 
             </Columns>
