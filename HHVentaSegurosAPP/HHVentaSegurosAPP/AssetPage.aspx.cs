@@ -11,6 +11,8 @@ namespace HHVentaSegurosAPP
 {
     public partial class AssetPage : System.Web.UI.Page
     {
+        public static WSHHVentaSeguros.clsActivo AssetForDepreciation { get; set; }
+        public static bool ShowDeprecation { get; set; }
         private void FillDataGrid()
         {
             WSHHVentaSeguros.clsActivo[] assets = AssetService.GetAsset();
@@ -23,6 +25,7 @@ namespace HHVentaSegurosAPP
         {
             if (!Page.IsPostBack)
             {
+                ShowDeprecation = false;
                 InitVariables();
                 FillDataGrid();
                 ViewState["Mode"] = 'C';
@@ -75,11 +78,11 @@ namespace HHVentaSegurosAPP
 
             if (ViewState["Mode"].ToString() == "C")
             {
-                message = AssetService.InsertAsset(txtDescripcion.Text, Convert.ToInt32(txtPrecioColones.Text), Convert.ToInt32(txtVidaUtilAnos.Text), Convert.ToInt32(txtValorDesechoColones.Text), Convert.ToInt32(txtIdCreadoPor.Text));
+                message = AssetService.InsertAsset(txtDescripcion.Text, Convert.ToInt32(txtPrecioColones.Text), Convert.ToInt32(txtVidaUtilAnos.Text), Convert.ToInt32(txtValorDesechoColones.Text), Master.currUser.IdUsuario);
             }
             else
             {
-                message = AssetService.UpdateAsset(Convert.ToInt32(txtIdActivo.Text), txtDescripcion.Text, Convert.ToInt32(txtPrecioColones.Text), Convert.ToInt32(txtVidaUtilAnos.Text), Convert.ToInt32(txtValorDesechoColones.Text), Convert.ToInt32(txtIdModificadoPor.Text));
+                message = AssetService.UpdateAsset(Convert.ToInt32(txtIdActivo.Text), txtDescripcion.Text, Convert.ToInt32(txtPrecioColones.Text), Convert.ToInt32(txtVidaUtilAnos.Text), Convert.ToInt32(txtValorDesechoColones.Text), Master.currUser.IdUsuario);
             }
 
             clsShared.ShowAlert(alertMessage, message);
@@ -98,7 +101,7 @@ namespace HHVentaSegurosAPP
             txtPrecioColones.Text = selectedRow.Cells[2].Text;
             txtVidaUtilAnos.Text = selectedRow.Cells[3].Text;
             txtValorDesechoColones.Text = selectedRow.Cells[4].Text;
-
+            SetAuditoryField(Convert.ToInt32(selectedRow.Cells[0].Text));
             ViewState["Mode"] = 'M';
 
             EnableInputs(true);
@@ -113,6 +116,29 @@ namespace HHVentaSegurosAPP
             FillDataGrid();
             clsShared.ShowAlert(alertMessage, message);
             ViewState["ShowAlert"] = true;
+        }
+
+        protected void btnDepreciacion_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)Convert.ChangeType(sender, typeof(Button));
+
+            int btnIndex = Convert.ToInt32(btn.ClientID.Substring(btn.ClientID.Length - 1 , 1));
+
+            int idActivo = Convert.ToInt32(grdActivo.Rows[btnIndex].Cells[0].Text);
+
+            Response.Redirect($"DepreciacionPage.aspx?idActivo={idActivo}");
+        }
+
+        protected void SetAuditoryField(int id)
+        {
+            WSHHVentaSeguros.clsActivo[] activos = AssetService.GetAsset();
+            WSHHVentaSeguros.ClsUsuario[] users = UserService.GetUsers();
+
+            int idCreadoPor = activos.FirstOrDefault(i => i.idActivo == id).IdCreadoPor;
+            int idModicicadoPor = activos.FirstOrDefault(i => i.idActivo == id).IdModificadoPor;
+
+            txtCreadoPor.Text = users.FirstOrDefault(u => u.IdUsuario == idCreadoPor)?.NombreUsuario ?? string.Empty;
+            txtModificadoPor.Text = users.FirstOrDefault(u => u.IdUsuario == idModicicadoPor)?.NombreUsuario ?? string.Empty;
         }
     }
 }

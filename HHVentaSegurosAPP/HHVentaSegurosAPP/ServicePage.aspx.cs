@@ -91,7 +91,7 @@ namespace HHVentaSegurosAPP
             txtIdServicio.Text = selectedRow.Cells[0].Text;
             txtTipoServicio.Text = selectedRow.Cells[1].Text;
             txtPrecioColones.Text = selectedRow.Cells[2].Text;
-
+            SetAuditoryField(Convert.ToInt32(selectedRow.Cells[0].Text));
             ViewState["Mode"] = 'M';
 
             EnableInputs(true);
@@ -106,6 +106,18 @@ namespace HHVentaSegurosAPP
             FillDataGrid();
             clsShared.ShowAlert(alertMessage, message);
             ViewState["ShowAlert"] = true;
+        }
+
+        protected void SetAuditoryField(int id)
+        {
+            WSHHVentaSeguros.clsServicio[] services = ServicesService.GetServices();
+            WSHHVentaSeguros.ClsUsuario[] users = UserService.GetUsers();
+
+            int idCreadoPor = services.FirstOrDefault(i => i.idServicio == id).IdCreadoPor;
+            int idModicicadoPor = services.FirstOrDefault(i => i.idServicio == id).IdModificadoPor;
+
+            txtCreadoPor.Text = users.FirstOrDefault(u => u.IdUsuario == idCreadoPor)?.NombreUsuario ?? string.Empty;
+            txtModificadoPor.Text = users.FirstOrDefault(u => u.IdUsuario == idModicicadoPor)?.NombreUsuario ?? string.Empty;
         }
     }
 }

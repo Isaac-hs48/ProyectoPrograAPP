@@ -16,6 +16,7 @@ namespace HHVentaSegurosAPP
         {
            if(!Page.IsPostBack)
             {
+                HttpContext.Current.Session.Add("CurrentUser", null);
                 ShowAlert = false;
             }
         }

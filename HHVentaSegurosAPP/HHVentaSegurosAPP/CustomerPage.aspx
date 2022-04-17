@@ -52,8 +52,24 @@
                           <asp:TextBox ID="txtCorreo" runat="server" CssClass="form-control" Type="email"></asp:TextBox>
 
                       </div>
+
+                           <div class="form-group col-3 mr-3">
+                        <label for="exampleInputEmail1">Creado Por</label>
+                           <asp:TextBox ID="txtCreadoPor" runat="server" CssClass="form-control" Type="text"></asp:TextBox>
+                      </div>
+                        
+                  </div>
+                    <div class="d-flex justify-content-start">
+                        
+                         <div class="form-group col-3 mr-3" >
+                        <label for="exampleInputPassword1">ModificadoPor</label>
+                          <asp:TextBox ID="txtModificadoPor" runat="server" CssClass="form-control" Type="text"></asp:TextBox>
+
+                      </div>
                   </div>
                 </div>
+
+              
 
                 <!-- /.card-body -->
 

@@ -69,6 +69,24 @@ namespace HHVentaSegurosAPP
         protected global::System.Web.UI.WebControls.TextBox txtContrasena;
 
         /// <summary>
+        /// Control txtCreadoPor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCreadoPor;
+
+        /// <summary>
+        /// Control txtModificadoPor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtModificadoPor;
+
+        /// <summary>
         /// Control btnNewUser.
         /// </summary>
         /// <remarks>

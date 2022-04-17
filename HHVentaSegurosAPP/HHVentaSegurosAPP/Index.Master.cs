@@ -27,5 +27,10 @@ namespace HHVentaSegurosAPP
             
             ShowMenu = !(path.Contains("/Login") || path.Contains("/Register"));
         }
+
+        protected void btnSignout_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

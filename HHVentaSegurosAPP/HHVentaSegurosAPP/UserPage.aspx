@@ -25,11 +25,12 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-                <div class="card-body d-flex justify-content-between">
+                <div class="card-body d-flex justify-content-start flex-column">
                     <div class="form-group col-1">
                     <label for="exampleInputEmail1">Id</label>
                        <asp:TextBox ID="txtIdUsuario" runat="server" CssClass="form-control" ></asp:TextBox>
                   </div>
+                    <div class="card-body d-flex justify-content-start">
                   <div class="form-group col-3">
                     <label for="exampleInputEmail1">Nombre completo</label>
                        <asp:TextBox ID="txtNombreCompleto" runat="server" CssClass="form-control" ></asp:TextBox>
@@ -43,8 +44,23 @@
                       <asp:TextBox ID="txtContrasena" runat="server" CssClass="form-control" Type="password"></asp:TextBox>
 
                   </div>
-                </div>
+                        </div>
 
+                    <div class="card-body d-flex justify-content-start">
+                    <div class="form-group col-3 mr-3">
+                        <label for="exampleInputEmail1">Creado Por</label>
+                           <asp:TextBox ID="txtCreadoPor" runat="server" CssClass="form-control" Type="text"></asp:TextBox>
+                      </div>
+                        <div class="form-group col-3 mr-3" >
+                        <label for="exampleInputPassword1">ModificadoPor</label>
+                          <asp:TextBox ID="txtModificadoPor" runat="server" CssClass="form-control" Type="text"></asp:TextBox>
+
+                      </div>
+                </div>
+                </div>
+               
+
+               
                 <!-- /.card-body -->
 
                 <div class="card-footer">

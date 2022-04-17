@@ -34,5 +34,12 @@ namespace HHVentaSegurosAPP.Services
 
             return service.DeleteAsset(pIdAsset);
         }
+
+        public static WSHHVentaSeguros.clsDepreciacion[] GenerateDeprecation(int _idActivo)
+        {
+            WSHHVentaSeguros.HHVentaSergurosWS service = new WSHHVentaSeguros.HHVentaSergurosWS();
+
+            return service.GenerateDeprecation(_idActivo);
+        }
     }
 }

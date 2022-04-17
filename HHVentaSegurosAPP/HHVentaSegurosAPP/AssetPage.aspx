@@ -3,9 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+    
      <section class="content">
       <div class="container-fluid">
-
           <%if (Convert.ToBoolean(ViewState["ShowAlert"]))
            {%>
 
@@ -47,12 +48,12 @@
                            <asp:TextBox ID="txtValorDesechoColones" runat="server" CssClass="form-control" ></asp:TextBox>
                       </div>
                         <div class="form-group col-3 mr-3">
-                        <label for="exampleInputEmail1">Id Creado Por</label>
-                           <asp:TextBox ID="txtIdCreadoPor" runat="server" CssClass="form-control" ></asp:TextBox>
+                        <label for="exampleInputEmail1">Creado Por</label>
+                           <asp:TextBox ID="txtCreadoPor" runat="server" CssClass="form-control" Type="text"></asp:TextBox>
                       </div>
                         <div class="form-group col-3 mr-3" >
-                        <label for="exampleInputPassword1">Id ModificadoPor</label>
-                          <asp:TextBox ID="txtIdModificadoPor" runat="server" CssClass="form-control" Type="email"></asp:TextBox>
+                        <label for="exampleInputPassword1">ModificadoPor</label>
+                          <asp:TextBox ID="txtModificadoPor" runat="server" CssClass="form-control" Type="text"></asp:TextBox>
 
                       </div>
                   </div>
@@ -66,7 +67,6 @@
                     <asp:Button ID="btnGuardarActivo" runat="server" Text="Guardar"  CssClass="btn btn-primary" OnClick="btnGuardarActivo_Click"/>
                 </div>
             </div>
-               </div>
 
 
         <asp:GridView ID="grdActivo" runat="server" AutoGenerateColumns="false" PageSize="20" CssClass="table table-bordered" OnSelectedIndexChanged="grdActivo_SelectedIndexChanged" OnRowDeleting="grdActivo_RowDeleting"> 
@@ -76,12 +76,10 @@
                 <asp:BoundField DataField="precioColones" HeaderText="Precio Colones"/>
                 <asp:BoundField DataField="vidaUtilAnos" HeaderText="Vida Util Años"/>
                 <asp:BoundField DataField="valorDesechoColones" HeaderText="Valor Desecho Colones"/>
-                <asp:BoundField DataField="idCreadoPor" HeaderText="ID Creado Por"/>
-                <asp:BoundField DataField="idModificadoPor" HeaderText="ID Modificado Por"/>
                 <asp:CommandField ControlStyle-CssClass="btn btn-primary" ButtonType="Button" ShowSelectButton="true" ShowDeleteButton="true" SelectText="Editar" ItemStyle-Width="200px"/>    
                 <asp:TemplateField>
                 <ItemTemplate>
-                <asp:Button ControlStyle-CssClass="btn btn-primary" ID="btnDepreciacion" runat="server" Text="Depreciacion"/>
+                <asp:Button ControlStyle-CssClass="btn btn-primary" ID="btnDepreciacion" runat="server" Text="Depreciacion" OnClick="btnDepreciacion_Click"/>
                 </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

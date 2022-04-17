@@ -105,7 +105,7 @@ namespace HHVentaSegurosAPP
             customerList.SelectedValue = SetListSelectedValue(Convert.ToInt32(selectedRow.Cells[2].Text), CustomerList);
             txtIdentificacion.Text = selectedRow.Cells[3].Text;
             txtTotalColones.Text = selectedRow.Cells[4].Text;
-
+            SetAuditoryField(Convert.ToInt32(selectedRow.Cells[0].Text));
             ViewState["Mode"] = 'M';
 
             EnableInputs(true);
@@ -164,6 +164,18 @@ namespace HHVentaSegurosAPP
             double precio = servicios.FirstOrDefault(s => s.idServicio == Convert.ToInt32(servicesList.SelectedValue.Split(' ')[0])).precioColones;
 
             txtTotalColones.Text = precio.ToString();
+        }
+
+        protected void SetAuditoryField(int id)
+        {
+            WSHHVentaSeguros.clsVenta[] sales = SaleService.GetSales();
+            WSHHVentaSeguros.ClsUsuario[] users = UserService.GetUsers();
+
+            int idCreadoPor = sales.FirstOrDefault(i => i.idVenta == id).IdCreadoPor;
+            int idModicicadoPor = sales.FirstOrDefault(i => i.idVenta == id).IdModificadoPor;
+
+            txtCreadoPor.Text = users.FirstOrDefault(u => u.IdUsuario == idCreadoPor)?.NombreUsuario ?? string.Empty;
+            txtModificadoPor.Text = users.FirstOrDefault(u => u.IdUsuario == idModicicadoPor)?.NombreUsuario ?? string.Empty;
         }
     }
 }

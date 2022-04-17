@@ -109,7 +109,7 @@ namespace HHVentaSegurosAPP
             txtNumTelefono.Text = selectedRow.Cells[4].Text;
             txtCorreo.Text = selectedRow.Cells[5].Text;
             txtDescripcion.Text = selectedRow.Cells[6].Text;
-
+            SetAuditoryField(Convert.ToInt32(selectedRow.Cells[0].Text));
             ViewState["Mode"] = 'M';
 
             EnableInputs(true);
@@ -124,6 +124,18 @@ namespace HHVentaSegurosAPP
             FillDataGrid();
             clsShared.ShowAlert(alertMessage, message);
             ViewState["ShowAlert"] = true;
+        }
+
+        protected void SetAuditoryField(int id)
+        {
+            WSHHVentaSeguros.ClsProveedor[] suppliers = SupplierService.GetSuppliers();
+            WSHHVentaSeguros.ClsUsuario[] users = UserService.GetUsers();
+
+            int idCreadoPor = suppliers.FirstOrDefault(i => i.IdProveedor == id).IdCreadoPor;
+            int idModicicadoPor = suppliers.FirstOrDefault(i => i.IdProveedor == id).IdModificadoPor;
+
+            txtCreadoPor.Text = users.FirstOrDefault(u => u.IdUsuario == idCreadoPor)?.NombreUsuario ?? string.Empty;
+            txtModificadoPor.Text = users.FirstOrDefault(u => u.IdUsuario == idModicicadoPor)?.NombreUsuario ?? string.Empty;
         }
     }
 }

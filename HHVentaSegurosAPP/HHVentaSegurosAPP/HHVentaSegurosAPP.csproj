@@ -107,6 +107,7 @@
     <Content Include="AdminLTE-3.2.0-rc\dist\css\alt\adminlte.pages.min.css" />
     <Content Include="AdminLTE-3.2.0-rc\dist\css\alt\adminlte.plugins.css" />
     <Content Include="AdminLTE-3.2.0-rc\dist\css\alt\adminlte.plugins.min.css" />
+    <Content Include="AdminLTE-3.2.0-rc\dist\css\Styles.css" />
     <Content Include="AdminLTE-3.2.0-rc\dist\img\AdminLTELogo.png" />
     <Content Include="AdminLTE-3.2.0-rc\dist\img\avatar.png" />
     <Content Include="AdminLTE-3.2.0-rc\dist\img\avatar2.png" />
@@ -2056,6 +2057,7 @@
     <Content Include="AdminLTE-3.2.0-rc\plugins\uplot\uPlot.min.css" />
     <Content Include="AdminLTE-3.2.0-rc\starter.html" />
     <Content Include="CustomerPage.aspx" />
+    <Content Include="DepreciacionPage.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
@@ -2087,6 +2089,9 @@
     <Content Include="Web References\WSHHVentaSeguros\clsVenta.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
+    <Content Include="Web References\WSHHVentaSeguros\clsDepreciacion.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\WSHHVentaSeguros\HHVentaSergurosWS.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -2097,6 +2102,13 @@
     </Compile>
     <Compile Include="CustomerPage.aspx.designer.cs">
       <DependentUpon>CustomerPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DepreciacionPage.aspx.cs">
+      <DependentUpon>DepreciacionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DepreciacionPage.aspx.designer.cs">
+      <DependentUpon>DepreciacionPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Form.cs" />
     <Compile Include="Register.aspx.cs">

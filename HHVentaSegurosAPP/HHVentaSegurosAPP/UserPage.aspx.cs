@@ -75,7 +75,7 @@ namespace HHVentaSegurosAPP
             txtNombreCompleto.Text = selectedRow.Cells[1].Text;
             txtNombreUsuario.Text = selectedRow.Cells[2].Text;
             txtIdUsuario.Text = selectedRow.Cells[0].Text;
-
+            SetAuditoryField(Convert.ToInt32(selectedRow.Cells[0].Text));
             ViewState["Mode"] = 'M';
 
             EnableInputs(true);
@@ -111,6 +111,17 @@ namespace HHVentaSegurosAPP
         {
             
             ViewState["ShowAlert"] = false;
+        }
+
+        protected void SetAuditoryField(int id)
+        {
+            WSHHVentaSeguros.ClsUsuario[] users = UserService.GetUsers();
+
+            int idCreadoPor = users.FirstOrDefault(i => i.IdUsuario == id).IdCreadoPor;
+            int idModicicadoPor = users.FirstOrDefault(i => i.IdUsuario == id).IdModificadoPor;
+
+            txtCreadoPor.Text = users.FirstOrDefault(u => u.IdUsuario == idCreadoPor)?.NombreUsuario ?? string.Empty;
+            txtModificadoPor.Text = users.FirstOrDefault(u => u.IdUsuario == idModicicadoPor)?.NombreUsuario ?? string.Empty;
         }
     }
 }

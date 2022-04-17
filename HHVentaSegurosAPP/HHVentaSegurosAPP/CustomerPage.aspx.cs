@@ -107,7 +107,7 @@ namespace HHVentaSegurosAPP.Pages
             txtNumCedula.Text = selectedRow.Cells[3].Text;
             txtNumTelefono.Text = selectedRow.Cells[4].Text;
             txtCorreo.Text = selectedRow.Cells[5].Text;
-
+            SetAuditoryField(Convert.ToInt32(selectedRow.Cells[0].Text));
             ViewState["Mode"] = 'M';
 
             EnableInputs(true);
@@ -122,6 +122,18 @@ namespace HHVentaSegurosAPP.Pages
             FillDataGrid();
             clsShared.ShowAlert(alertMessage, message);
             ViewState["ShowAlert"] = true;
+        }
+
+        protected void SetAuditoryField(int id)
+        {
+            WSHHVentaSeguros.ClsCliente[] customers = CustomerService.GetCustomers();
+            WSHHVentaSeguros.ClsUsuario[] users = UserService.GetUsers();
+
+            int idCreadoPor = customers.FirstOrDefault(i => i.IdCliente == id).IdCreadoPor;
+            int idModicicadoPor = customers.FirstOrDefault(i => i.IdCliente == id).IdModificadoPor;
+
+            txtCreadoPor.Text = users.FirstOrDefault(u => u.IdUsuario == idCreadoPor)?.NombreUsuario ?? string.Empty;
+            txtModificadoPor.Text = users.FirstOrDefault(u => u.IdUsuario == idModicicadoPor)?.NombreUsuario ?? string.Empty;
         }
     }
 }
