@@ -15,7 +15,7 @@ namespace HHVentaSegurosAPP.Services
 
             return services;
         }
-        public static string InsertService(string tipoServicio, float precioColones, int idCreadoPor)
+        public static string InsertService(string tipoServicio, double precioColones, int idCreadoPor)
         {
             WSHHVentaSeguros.HHVentaSergurosWS service = new WSHHVentaSeguros.HHVentaSergurosWS();
 

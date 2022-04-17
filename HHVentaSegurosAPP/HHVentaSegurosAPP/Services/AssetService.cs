@@ -15,7 +15,7 @@ namespace HHVentaSegurosAPP.Services
 
             return assets;
         }
-        public static string InsertAsset(string descripcion, float precioColones, int vidaUtilAnos, float valorDesechoColones, int idCreadoPor)
+        public static string InsertAsset(string descripcion, double precioColones, int vidaUtilAnos, double valorDesechoColones, int idCreadoPor)
         {
             WSHHVentaSeguros.HHVentaSergurosWS service = new WSHHVentaSeguros.HHVentaSergurosWS();
 

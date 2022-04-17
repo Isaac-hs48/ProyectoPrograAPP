@@ -78,9 +78,14 @@
                 <asp:BoundField DataField="valorDesechoColones" HeaderText="Valor Desecho Colones"/>
                 <asp:BoundField DataField="idCreadoPor" HeaderText="ID Creado Por"/>
                 <asp:BoundField DataField="idModificadoPor" HeaderText="ID Modificado Por"/>
-                <asp:CommandField ControlStyle-CssClass="btn btn-primary" ButtonType="Button" ShowSelectButton="true" ShowDeleteButton="true" SelectText="Editar" ItemStyle-Width="200px"/>
-                <asp:CommandField ControlStyle-CssClass="btn btn-primary" ButtonType="Button" ShowSelectButton="true" ShowDeleteButton="true" SelectText="Depreciacion" ItemStyle-Width="200px"/>
+                <asp:CommandField ControlStyle-CssClass="btn btn-primary" ButtonType="Button" ShowSelectButton="true" ShowDeleteButton="true" SelectText="Editar" ItemStyle-Width="200px"/>    
+                <asp:TemplateField>
+                <ItemTemplate>
+                <asp:Button ControlStyle-CssClass="btn btn-primary" ID="btnDepreciacion" runat="server" Text="Depreciacion"/>
+                </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
+            
         </asp:GridView>
       </div><!-- /.container-fluid -->
     </section>

@@ -91,6 +91,11 @@ namespace HHVentaSegurosAPP
             EnableInputs(false);
         }
 
+        protected void btnDepreciacion_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         protected void grdVenta_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow selectedRow = grdVenta.SelectedRow;

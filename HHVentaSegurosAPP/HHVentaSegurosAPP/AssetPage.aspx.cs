@@ -19,6 +19,16 @@ namespace HHVentaSegurosAPP
             grdActivo.DataSource = assets;
             grdActivo.DataBind();
         }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
+            {
+                InitVariables();
+                FillDataGrid();
+                ViewState["Mode"] = 'C';
+                ViewState["ShowAlert"] = false;
+            }
+        }
         private void InitVariables()
         {
             btnGuardarActivo.Enabled = false;
@@ -32,19 +42,19 @@ namespace HHVentaSegurosAPP
         private void EnableInputs(bool enabled)
         {
             btnGuardarActivo.Enabled = enabled;
-            txtDescripcion.Enabled = false;
-            txtPrecioColones.Enabled = false;
-            txtVidaUtilAnos.Enabled = false;
-            txtValorDesechoColones.Enabled = false;
+            txtDescripcion.Enabled = enabled;
+            txtPrecioColones.Enabled = enabled;
+            txtVidaUtilAnos.Enabled = enabled;
+            txtValorDesechoColones.Enabled = enabled;
         }
 
         private void ClearInputs()
         {
-            txtIdActivo.Enabled = false;
-            txtDescripcion.Enabled = false;
-            txtPrecioColones.Enabled = false;
-            txtVidaUtilAnos.Enabled = false;
-            txtValorDesechoColones.Enabled = false;
+            txtIdActivo.Text = string.Empty;
+            txtDescripcion.Text = string.Empty;
+            txtPrecioColones.Text = string.Empty;
+            txtVidaUtilAnos.Text = string.Empty;
+            txtValorDesechoColones.Text = string.Empty;
         }
 
         protected void dissmisAlert_Click(object sender, EventArgs e)
